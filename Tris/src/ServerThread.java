@@ -17,12 +17,10 @@ public class ServerThread extends Thread {
 	public void run() {
 		try {
 			input = new BufferedReader(new InputStreamReader(client.getInputStream()));
-			String mittente = "";
 			String dest="";
 			while(true) {
 				messaggio = input.readLine();
 				if(messaggio.equals("///") == false && messaggio.equals("//") == false && messaggio.equals("/") == false) {
-					mittente = messaggio;
 					ServerModel.sendMessage(messaggio, client); // lo ritrasmette 
 				}
 				if(messaggio.equals("/")){
@@ -32,7 +30,8 @@ public class ServerThread extends Thread {
 				if(messaggio.equals("//")){
 					messaggio = input.readLine();
 					if(messaggio.equals("accept")) {
-						ServerModel.confermaPartita(client,mittente);
+						messaggio = input.readLine();
+						ServerModel.confermaPartita(client,messaggio);
 					}
 					if(messaggio.equals("decline")) {
 					}

@@ -51,19 +51,14 @@ public class ServerModel {
 		Socket temp = null;
 		for (int y = 0; y < vett.size(); y++) {
 			if (vett.get(y).getUsername().equals(message)) {
-				for (int i = 0; i < listaSocket.size(); i++) {
-					if (vett.get(y).getIp().equals(listaSocket.get(i).getInetAddress().toString())
-							&& vett.get(y).getPort() == listaSocket.get(i).getPort()) {
-						temp = listaSocket.get(i);
-					}
-				}
+				temp = listaSocket.get(y);
 			}
 		}
 		PrintWriter out = new PrintWriter(temp.getOutputStream(), true);
 		out.println("//");
 		String mitt = "";
 		for (int y = 0; y < vett.size(); y++) {
-			if (sender.getInetAddress().toString().equals(vett.get(y).getIp())) {
+			if (sender == listaSocket.get(y)) {
 				mitt = vett.get(y).getUsername();
 			}
 		}
@@ -97,26 +92,18 @@ public class ServerModel {
 		Socket temp = null;
 		for (int y = 0; y < vett.size(); y++) {
 			if (vett.get(y).getUsername().equals(message)) {
-				for (int i = 0; i < listaSocket.size(); i++) {
-					if (vett.get(y).getIp().equals(listaSocket.get(i).getInetAddress().toString()) && sender!=listaSocket.get(i)) {
-						temp = listaSocket.get(i);
-					}
-				}
+				temp = listaSocket.get(y);
 			}
 		}
 		PrintWriter out = new PrintWriter(temp.getOutputStream(), true);
 		out.println("confirm");
 	}
 
-	public static void partita(String dest, String numero,Socket mitt) throws IOException {
+	public static void partita(String dest, String numero, Socket mitt) throws IOException {
 		Socket temp = null;
 		for (int y = 0; y < vett.size(); y++) {
 			if (vett.get(y).getUsername().equals(dest)) {
-				for (int i = 0; i < listaSocket.size(); i++) {
-					if (vett.get(y).getIp().equals(listaSocket.get(i).getInetAddress().toString())) {
-						temp = listaSocket.get(i);
-					}
-				}
+				temp = listaSocket.get(y);
 			}
 		}
 		PrintWriter out = new PrintWriter(temp.getOutputStream(), true);
