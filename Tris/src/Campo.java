@@ -244,6 +244,7 @@ public class Campo extends JFrame implements MouseListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == label_1) {
 			campo = 1;
+			//System.out.println("1");
 		}
 		if (e.getSource() == label_2) {
 			campo = 2;

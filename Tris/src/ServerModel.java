@@ -54,14 +54,14 @@ public class ServerModel {
 				temp = listaSocket.get(y);
 			}
 		}
-		PrintWriter out = new PrintWriter(temp.getOutputStream(), true);
-		out.println("//");
 		String mitt = "";
-		for (int y = 0; y < vett.size(); y++) {
+		for (int y = 0; y < listaSocket.size(); y++) {
 			if (sender == listaSocket.get(y)) {
 				mitt = vett.get(y).getUsername();
 			}
 		}
+		PrintWriter out = new PrintWriter(temp.getOutputStream(), true);
+		out.println("//");
 		out.println(mitt);
 	}
 
@@ -88,7 +88,7 @@ public class ServerModel {
 		}
 	}
 
-	public static void confermaPartita(Socket sender, String message) throws IOException {
+	public static void confermaPartita(String message) throws IOException {
 		Socket temp = null;
 		for (int y = 0; y < vett.size(); y++) {
 			if (vett.get(y).getUsername().equals(message)) {
@@ -96,20 +96,18 @@ public class ServerModel {
 			}
 		}
 		PrintWriter out = new PrintWriter(temp.getOutputStream(), true);
+		out.println("/");
 		out.println("confirm");
 	}
 
-	public static void partita(String dest, String numero, Socket mitt) throws IOException {
+	public static void partita(String dest, String numero) throws IOException {
 		Socket temp = null;
-		int fa=0;
 		for (int y = 0; y < vett.size(); y++) {
 			if (vett.get(y).getUsername().equals(dest)) {
-				fa=y;
 				temp = listaSocket.get(y);
 			}
 		}
 		PrintWriter out = new PrintWriter(temp.getOutputStream(), true);
-		System.out.println(vett.get(fa).getUsername() + " riceve: " + numero);
 		out.println(numero);
 	}
 

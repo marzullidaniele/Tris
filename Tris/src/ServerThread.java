@@ -31,7 +31,7 @@ public class ServerThread extends Thread {
 					messaggio = input.readLine();
 					if(messaggio.equals("accept")) {
 						messaggio = input.readLine();
-						ServerModel.confermaPartita(client,messaggio);
+						ServerModel.confermaPartita(messaggio);
 					}
 					if(messaggio.equals("decline")) {
 					}
@@ -43,7 +43,7 @@ public class ServerThread extends Thread {
 					messaggio = input.readLine();
 					dest = messaggio;
 					messaggio = input.readLine();
-					ServerModel.partita(dest,messaggio,client);
+					ServerModel.partita(dest,messaggio);
 				}
 			}		
 			
