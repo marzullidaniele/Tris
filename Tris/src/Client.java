@@ -51,10 +51,12 @@ public class Client {
 						f.setVisible(false);
 						gioco = new Campo(s);
 						gioco.setVisible(true);
+						gioco.getLabel_11().setIcon(new ImageIcon(Campo.class.getResource("/Immagini/x.png")));
 						giocate = new ArrayList<Integer>();
 						while (true) {
 							boolean giocato = false;
 							while (giocato == false) {
+								gioco.getLabel_10().setText("E' IL TURNO DEL TUO AVVERSARIO");
 								while (messaggio.equals("1") == false && messaggio.equals("2") == false
 										&& messaggio.equals("3") == false && messaggio.equals("4") == false
 										&& messaggio.equals("5") == false && messaggio.equals("6") == false
@@ -113,7 +115,8 @@ public class Client {
 								}
 							}
 							while (giocato == true) {
-								// System.out.println(gioco.getCampo());
+								System.out.println(gioco.getCampo());
+								gioco.getLabel_10().setText("E' IL TUO TURNO");
 								boolean occupato = false;
 								for (int i = 0; i < giocate.size(); i++) {
 									if (giocate.get(i) == gioco.getCampo()) {
@@ -189,11 +192,13 @@ public class Client {
 							f.setVisible(false);
 							gioco = new Campo(s);
 							gioco.setVisible(true);
+							gioco.getLabel_11().setIcon(new ImageIcon(Campo.class.getResource("/Immagini/cerchio.png")));
 							giocate = new ArrayList<Integer>();
 							while (true) {
 								boolean giocato = false;
 								while (giocato == false) {
-									// System.out.println(gioco.getCampo());
+									gioco.getLabel_10().setText("E' IL TUO TURNO");
+									System.out.println(gioco.getCampo());
 									boolean occupato = false;
 									for (int i = 0; i < giocate.size(); i++) {
 										if (giocate.get(i) == gioco.getCampo()) {
@@ -255,14 +260,14 @@ public class Client {
 										Collections.sort(giocate);
 									}
 								}
-								if (giocato == true) {
+								while (giocato == true) {
+									gioco.getLabel_10().setText("E' IL TURNO DEL TUO AVVERSARIO");
 									while (messaggio.equals("1") == false && messaggio.equals("2") == false
 											&& messaggio.equals("3") == false && messaggio.equals("4") == false
 											&& messaggio.equals("5") == false && messaggio.equals("6") == false
 											&& messaggio.equals("7") == false && messaggio.equals("8") == false
 											&& messaggio.equals("9") == false) {
 										messaggio = in.readLine();
-										System.out.println(messaggio);
 									}
 									int avv = Integer.parseInt(messaggio);
 									giocato = false;

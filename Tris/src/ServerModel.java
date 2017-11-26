@@ -101,12 +101,15 @@ public class ServerModel {
 
 	public static void partita(String dest, String numero, Socket mitt) throws IOException {
 		Socket temp = null;
+		int fa=0;
 		for (int y = 0; y < vett.size(); y++) {
 			if (vett.get(y).getUsername().equals(dest)) {
+				fa=y;
 				temp = listaSocket.get(y);
 			}
 		}
 		PrintWriter out = new PrintWriter(temp.getOutputStream(), true);
+		System.out.println(vett.get(fa).getUsername() + " riceve: " + numero);
 		out.println(numero);
 	}
 
