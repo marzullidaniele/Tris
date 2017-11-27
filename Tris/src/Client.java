@@ -118,6 +118,14 @@ public class Client {
 											JOptionPane.showMessageDialog(null, "HAI PERSO!" , "SCONFITTA",0);
 											System.exit(0);
 										}
+										if(giocateAvv.get(0) == 4 && giocateAvv.get(1) == 5 && giocateAvv.get(2) ==6){
+											JOptionPane.showMessageDialog(null, "HAI PERSO!" , "SCONFITTA",0);
+											System.exit(0);
+										}
+										if(giocateAvv.get(0) == 7 && giocateAvv.get(1) == 8 && giocateAvv.get(2) ==9){
+											JOptionPane.showMessageDialog(null, "HAI PERSO!" , "SCONFITTA",0);
+											System.exit(0);
+										}
 									}
 								}
 								while (giocato == true) {
@@ -185,6 +193,14 @@ public class Client {
 										Collections.sort(giocate);
 										if(giocate.size()>2){
 											if(giocate.get(0) == 1 && giocate.get(1) == 2 && giocate.get(2) ==3){
+												JOptionPane.showMessageDialog(null, "HAI VINTO!" , "VITTORIA",3);
+												System.exit(0);
+											}
+											if(giocate.get(0) == 4 && giocate.get(1) == 5 && giocate.get(2) ==6){
+												JOptionPane.showMessageDialog(null, "HAI VINTO!" , "VITTORIA",3);
+												System.exit(0);
+											}
+											if(giocate.get(0) == 7 && giocate.get(1) == 8 && giocate.get(2) ==9){
 												JOptionPane.showMessageDialog(null, "HAI VINTO!" , "VITTORIA",3);
 												System.exit(0);
 											}
@@ -279,6 +295,14 @@ public class Client {
 												JOptionPane.showMessageDialog(null, "HAI VINTO!" , "VITTORIA",3);
 												System.exit(0);
 											}
+											if(giocate.get(0) == 4 && giocate.get(1) == 5 && giocate.get(2) ==6){
+												JOptionPane.showMessageDialog(null, "HAI VINTO!" , "VITTORIA",3);
+												System.exit(0);
+											}
+											if(giocate.get(0) == 7 && giocate.get(1) == 8 && giocate.get(2) ==9){
+												JOptionPane.showMessageDialog(null, "HAI VINTO!" , "VITTORIA",3);
+												System.exit(0);
+											}
 										}
 									}
 								}
@@ -338,6 +362,14 @@ public class Client {
 									Collections.sort(giocateAvv);
 									if(giocateAvv.size()>2){
 										if(giocateAvv.get(0) == 1 && giocateAvv.get(1) == 2 && giocateAvv.get(2) ==3){
+											JOptionPane.showMessageDialog(null, "HAI PERSO!" , "SCONFITTA",0);
+											System.exit(0);
+										}
+										if(giocateAvv.get(0) == 4 && giocateAvv.get(1) == 5 && giocateAvv.get(2) ==6){
+											JOptionPane.showMessageDialog(null, "HAI PERSO!" , "SCONFITTA",0);
+											System.exit(0);
+										}
+										if(giocateAvv.get(0) == 7 && giocateAvv.get(1) == 8 && giocateAvv.get(2) ==9){
 											JOptionPane.showMessageDialog(null, "HAI PERSO!" , "SCONFITTA",0);
 											System.exit(0);
 										}
