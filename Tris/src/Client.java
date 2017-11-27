@@ -25,6 +25,7 @@ public class Client {
 	Finestra f;
 	Campo gioco;
 	ArrayList<Integer> giocate;
+	ArrayList<Integer> giocateAvv;
 	String avversario = "";
 
 	private class ClientThread extends Thread {
@@ -55,18 +56,12 @@ public class Client {
 							gioco.setVisible(true);
 							gioco.getLabel_11().setIcon(new ImageIcon(Campo.class.getResource("/Immagini/x.png")));
 							giocate = new ArrayList<Integer>();
+							giocateAvv = new ArrayList<Integer>();
 							while (true) {
 								boolean giocato = false;
 								while (giocato == false) {
 									gioco.getLabel_10().setText("E' IL TURNO DEL TUO AVVERSARIO");
-									while (messaggio.equals("1") == false && messaggio.equals("2") == false
-											&& messaggio.equals("3") == false && messaggio.equals("4") == false
-											&& messaggio.equals("5") == false && messaggio.equals("6") == false
-											&& messaggio.equals("7") == false && messaggio.equals("8") == false
-											&& messaggio.equals("9") == false) {
-										messaggio = in.readLine();
-										System.out.println(messaggio);
-									}
+									messaggio = in.readLine();
 									int avv = Integer.parseInt(messaggio);
 									giocato = true;
 									switch (avv) {
@@ -115,6 +110,14 @@ public class Client {
 												new ImageIcon(Campo.class.getResource("/Immagini/cerchio.png")));
 										giocate.add(9);
 										break;
+									}
+									giocateAvv.add(avv);
+									Collections.sort(giocateAvv);
+									if(giocateAvv.size()>2){
+										if(giocateAvv.get(0) == 1 && giocateAvv.get(1) == 2 && giocateAvv.get(2) ==3){
+											JOptionPane.showMessageDialog(null, "HAI PERSO!" , "SCONFITTA",0);
+											System.exit(0);
+										}
 									}
 								}
 								while (giocato == true) {
@@ -180,6 +183,12 @@ public class Client {
 										out.println(gioco.getCampo());
 										gioco.setCampo(0);
 										Collections.sort(giocate);
+										if(giocate.size()>2){
+											if(giocate.get(0) == 1 && giocate.get(1) == 2 && giocate.get(2) ==3){
+												JOptionPane.showMessageDialog(null, "HAI VINTO!" , "VITTORIA",3);
+												System.exit(0);
+											}
+										}
 									}
 								}
 							}
@@ -200,6 +209,7 @@ public class Client {
 							gioco.getLabel_11()
 									.setIcon(new ImageIcon(Campo.class.getResource("/Immagini/cerchio.png")));
 							giocate = new ArrayList<Integer>();
+							giocateAvv = new ArrayList<Integer>();
 							while (true) {
 								boolean giocato = false;
 								while (giocato == false) {
@@ -264,17 +274,17 @@ public class Client {
 										out.println(avversario);
 										out.println(gioco.getCampo());
 										Collections.sort(giocate);
+										if(giocate.size()>2){
+											if(giocate.get(0) == 1 && giocate.get(1) == 2 && giocate.get(2) ==3){
+												JOptionPane.showMessageDialog(null, "HAI VINTO!" , "VITTORIA",3);
+												System.exit(0);
+											}
+										}
 									}
 								}
 								while (giocato == true) {
 									gioco.getLabel_10().setText("E' IL TURNO DEL TUO AVVERSARIO");
-									while (messaggio.equals("1") == false && messaggio.equals("2") == false
-											&& messaggio.equals("3") == false && messaggio.equals("4") == false
-											&& messaggio.equals("5") == false && messaggio.equals("6") == false
-											&& messaggio.equals("7") == false && messaggio.equals("8") == false
-											&& messaggio.equals("9") == false) {
-										messaggio = in.readLine();
-									}
+									messaggio = in.readLine();
 									int avv = Integer.parseInt(messaggio);
 									giocato = false;
 									switch (avv) {
@@ -323,6 +333,14 @@ public class Client {
 												.setIcon(new ImageIcon(Campo.class.getResource("/Immagini/x.png")));
 										giocate.add(9);
 										break;
+									}
+									giocateAvv.add(avv);
+									Collections.sort(giocateAvv);
+									if(giocateAvv.size()>2){
+										if(giocateAvv.get(0) == 1 && giocateAvv.get(1) == 2 && giocateAvv.get(2) ==3){
+											JOptionPane.showMessageDialog(null, "HAI PERSO!" , "SCONFITTA",0);
+											System.exit(0);
+										}
 									}
 								}
 							}
