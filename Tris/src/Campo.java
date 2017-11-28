@@ -68,7 +68,7 @@ public class Campo extends JFrame implements MouseListener {
 		label_4.addMouseListener(this);
 
 		label_5 = new JLabel("");
-		label_5.setBounds(110, 169, 50, 50);
+		label_5.setBounds(110, 165, 50, 50);
 		contentPane.add(label_5);
 		label_5.addMouseListener(this);
 

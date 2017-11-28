@@ -20,7 +20,7 @@ public class ServerThread extends Thread {
 			String dest="";
 			while(true) {
 				messaggio = input.readLine();
-				if(messaggio.equals("////") == false && messaggio.equals("///") == false && messaggio.equals("//") == false && messaggio.equals("/") == false) {
+				if(messaggio.equals("///") == false && messaggio.equals("//") == false && messaggio.equals("/") == false) {
 					ServerModel.sendMessage(messaggio, client); // lo ritrasmette 
 				}
 				if(messaggio.equals("/")){
@@ -36,10 +36,7 @@ public class ServerThread extends Thread {
 					if(messaggio.equals("decline")) {
 					}
 				}
-				if(messaggio.equals("///")){
-					//ServerModel.elimina(client);
-				}
-				if(messaggio.equals("////")) {
+				if(messaggio.equals("///")) {
 					messaggio = input.readLine();
 					dest = messaggio;
 					messaggio = input.readLine();

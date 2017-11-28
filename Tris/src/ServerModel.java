@@ -65,29 +65,6 @@ public class ServerModel {
 		out.println(mitt);
 	}
 
-	public static void elimina(Socket sender) throws IOException {
-		for (int y = 0; y < vett.size(); y++) {
-			if (vett.get(y).getIp().equals(sender.getInetAddress().toString())) {
-				vett.remove(y);
-			}
-		}
-		for (int i = 0; i < listaSocket.size(); i++) {
-			if (sender == listaSocket.get(i)) {
-				listaSocket.get(i).close();
-				listaSocket.remove(i);
-			}
-		}
-		for (int i = 0; i < listaSocket.size(); i++) {
-			Socket temp = listaSocket.get(i);
-			PrintWriter out = new PrintWriter(temp.getOutputStream(), true);
-			for (int c = 0; c < vett.size(); c++) {
-				if (c != i) {
-					out.println(vett.get(c).getUsername());
-				}
-			}
-		}
-	}
-
 	public static void confermaPartita(String message) throws IOException {
 		Socket temp = null;
 		for (int y = 0; y < vett.size(); y++) {
